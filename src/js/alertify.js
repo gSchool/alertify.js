@@ -26,6 +26,11 @@
 
     function Alertify() {
 
+        if ( typeof window === "undefined" || typeof window.document === "undefined" ) {
+            // Exit gracefully for same node.js consumption
+            return {};
+        }
+
         /**
          * Alertify private object
          * @type {Object}
