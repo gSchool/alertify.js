@@ -15,8 +15,8 @@
             }
         };
 
-        el.classList.remove("show");
-        el.classList.add("hide");
+        el.classList.remove("alertify--show");
+        el.classList.add("alertify--hide");
         el.addEventListener("transitionend", removeThis);
 
         // Fallback for no transitions.
@@ -60,7 +60,7 @@
                     cancel: "<button class='cancel' tabindex='2'>{{cancel}}</button>"
                 },
                 input: "<input type='text'>",
-                message: "<p class='msg'>{{message}}</p>",
+                message: "<p class='alertify--msg'>{{message}}</p>",
                 log: "<div class='{{class}}'>{{message}}</div>"
             },
 
@@ -71,7 +71,7 @@
                     cancel: "<button class='cancel' tabindex='2'>{{cancel}}</button>"
                 },
                 input: "<input type='text'>",
-                message: "<p class='msg'>{{message}}</p>",
+                message: "<p class='alertify--msg'>{{message}}</p>",
                 log: "<div class='{{class}}'>{{message}}</div>"
             },
 
@@ -85,7 +85,7 @@
             build: function(item) {
 
                 var btnTxt = this.dialogs.buttons.ok;
-                var html = "<div class='dialog'>" + "<div>" + this.dialogs.message.replace("{{message}}", item.message);
+                var html = "<div class='alertify--dialog'>" + "<div>" + this.dialogs.message.replace("{{message}}", item.message);
 
                 if(item.type === "confirm" || item.type === "prompt") {
                     btnTxt = this.dialogs.buttons.cancel + this.dialogs.buttons.ok;
@@ -218,7 +218,7 @@
                 var elLog = this.setupLogContainer();
                 var log = document.createElement("div");
 
-                log.className = (type || "default");
+                log.className = "alertify--" + (type || "default");
                 if (_alertify.logTemplateMethod) {
                     log.innerHTML = _alertify.logTemplateMethod(message);
                 } else {
@@ -232,7 +232,7 @@
 
                 elLog.appendChild(log);
                 setTimeout(function() {
-                    log.className += " show";
+                    log.className += " alertify--show";
                 }, 10);
 
                 this.close(log, this.delay);
@@ -247,7 +247,7 @@
             setup: function(item) {
 
                 var el = document.createElement("div");
-                el.className = "alertify hide";
+                el.className = "alertify alertify--hide";
                 el.innerHTML = this.build(item);
 
                 var btnOK = el.querySelector(".ok");
@@ -337,7 +337,7 @@
 
                 this.parent.appendChild(el);
                 setTimeout(function() {
-                    el.classList.remove("hide");
+                    el.classList.remove("alertify--hide");
                     if(input && item.type && item.type === "prompt") {
                         input.select();
                         input.focus();

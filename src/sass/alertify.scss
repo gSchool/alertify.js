@@ -13,13 +13,13 @@ $border-radius: 1px;
         border-radius: $border-radius;
         transition: .2s all;
         display: block !important;
-        &, &.default {
+        &, &.alertify--default {
             background: rgba(0, 0, 0, .8);
         }
-        &.error {
+        &.alertify--error {
           background: $danger-color;
         }
-        &.success {
+        &.alertify--success {
           background: $success-color;
         }
     }
@@ -37,12 +37,12 @@ $border-radius: 1px;
     height: 100%;
     z-index: 99999;
 
-    &.hide {
+    &.alertify--hide {
         opacity: 0;
         pointer-events: none;
     }
 
-    &, &.show {
+    &, &.alertify--show {
         box-sizing: border-box;
         transition: all .33s cubic-bezier(.25, .8, .25, 1);
     }
@@ -51,11 +51,11 @@ $border-radius: 1px;
         box-sizing: border-box;
     }
 
-    .dialog {
+    .alertify--dialog {
        padding: 12px;
     }
 
-    .dialog, .alert {
+    .alertify--dialog, .alert {
 
         width: 100%;
         margin: 0 auto;
@@ -73,7 +73,7 @@ $border-radius: 1px;
             box-shadow: 0 2px 4px -1px rgba(0,0,0,.14), 0 4px 5px 0 rgba(0,0,0,.098), 0 1px 10px 0 rgba(0,0,0,.084);
         }
 
-        .msg {
+        .alertify--msg {
           padding: $padding-base;
           margin-bottom: $padding-base;
           margin: 0;
@@ -164,10 +164,10 @@ $border-radius: 1px;
             transform: translate3d(0, 0, 0);
             height: auto;
 
-            &.show {
+            &.alertify--show {
                 left: 0;
             }
-            &, &.hide {
+            &, &.alertify--hide {
                 left: -110%;
             }
         }
@@ -178,11 +178,11 @@ $border-radius: 1px;
         > * {
             float: right;
             transform: translate3d(0, 0, 0);
-            &.show {
+            &.alertify--show {
                 right: 0;
                 opacity: 1;
             }
-            &, &.hide {
+            &, &.alertify--hide {
                 right: -110%;
                 opacity: 0;
             }
@@ -222,7 +222,7 @@ $border-radius: 1px;
             pointer-events: none;
         }
 
-        &.show {
+        &.alertify--show {
             margin-top: $padding-base;
             opacity: 1;
             max-height: 1000px;
