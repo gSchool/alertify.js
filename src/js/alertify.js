@@ -97,8 +97,8 @@
 
                 html = (html + this.dialogs.buttons.holder + "</div>" + "</div>")
                   .replace("{{buttons}}", btnTxt)
-                  .replace("{{ok}}", this.okLabel)
-                  .replace("{{cancel}}", this.cancelLabel);
+                  .replace("{{ok}}", item.okLabel || this.okLabel)
+                  .replace("{{cancel}}", item.cancelLabel || this.cancelLabel);
 
                 return html;
 
@@ -146,12 +146,12 @@
              *
              * @return {Object}
              */
-            dialog: function(message, type, onOkay, onCancel) {
+            dialog: function(message, type, options) {
                 return this.setup({
                     type: type,
                     message: message,
-                    onOkay: onOkay,
-                    onCancel: onCancel
+                    okLabel: options.okLabel,
+                    cancelLabel: options.cancelLabel
                 });
             },
 
@@ -447,14 +447,14 @@
                 _alertify.reset();
                 return this;
             },
-            alert: function(message, onOkay, onCancel) {
-                return _alertify.dialog(message, "alert", onOkay, onCancel) || this;
+            alert: function(message, options) {
+                return _alertify.dialog(message, "alert", options || {});
             },
-            confirm: function(message, onOkay, onCancel) {
-                return _alertify.dialog(message, "confirm", onOkay, onCancel) || this;
+            confirm: function(message, options) {
+                return _alertify.dialog(message, "confirm", options || {});
             },
-            prompt: function(message, onOkay, onCancel) {
-                return _alertify.dialog(message, "prompt", onOkay, onCancel) || this;
+            prompt: function(message, options) {
+                return _alertify.dialog(message, "prompt", options || {});
             },
             log: function(message, click) {
                 _alertify.log(message, "default", click);
