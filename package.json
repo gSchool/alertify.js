@@ -1,5 +1,5 @@
 {
-  "name": "alertify.js",
+  "name": "alertify-galvanize",
   "description": "An lightweight, unobtrusive customizable JavaScript notification system.",
   "version": "1.0.11",
   "homepage": "https://alertifyjs.org/",
@@ -80,7 +80,6 @@
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/alertifyjs/alertify.js/issues",
-    "email": "inbox@alertifyjs.org"
+    "url": "https://github.com/gSchool/alertify.js/issues"
   }
 }
